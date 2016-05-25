@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="hub_ang">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="C:\Users\shas\Desktop\jq\bower_components\bootstrap\dist\css\bootstrap.css">
+		<script type="text/javascript" src="C:\Users\shas\Desktop\jq\bower_components\angularjs\angular.js"></script>
+		<script type="text/javascript" src="C:/Users/shas/Desktop/jq/public/js/hub_ang.js"></script>
+		<title>sea</title>
+	</head>
+
+	<body ng-controller="Userctrl">
+		
+		<h3>Git hub Repo</h3>
+		<form>
+		<input type="text" placeholder="search repositories.." ng-model="rep" required >
+			<button ng-click="searchh()">Submit</button>
+		</form>
+		{{error}}
+
+		<div ng-show="answer">
+			<table class="answer table">
+				<tr>
+					<th>repo name</th>
+					<th>user name</th>
+					<th>date off creation</th>
+				</tr>
+				<tr ng-repeat="x in answer">
+					<td>{{x.repo}}</td>
+					<td><a href="#" ng-click="show=!show">{{x.name}}</a><div ng-show="show">
+										<ul >
+											<li>{{x.original_name}}</li>
+											<li><a href="'http://'+{{x.blog}}">{{x.blog}}</a></li>
+											<li><img ng-src="{{x.imgg}}" style="height:100px;weidht=100px"/></li>
+										</ul>
+								</div>
+					</td>
+					<td>{{x.date}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
